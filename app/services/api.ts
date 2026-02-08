@@ -11,9 +11,16 @@ export async function checkHealth(): Promise<boolean> {
 
 export interface UploadResponse {
   filename: string;
+  stored_filename: string;
+  processed_filename: string;
   size: number;
+  processed_size: number;
   content_type: string;
   status: string;
+}
+
+export function getDownloadUrl(filename: string): string {
+  return `${API_URL}/download/${filename}`;
 }
 
 export async function uploadFile(file: File): Promise<UploadResponse> {

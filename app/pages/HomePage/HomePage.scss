@@ -172,4 +172,48 @@
     font-size: 0.875rem;
     color: rgb(34 197 94);
   }
+
+  &__result-image {
+    max-width: 100%;
+    max-height: 250px;
+    border-radius: 0.25rem;
+  }
+
+  &__result-size {
+    font-size: 0.875rem;
+    color: rgb(161 161 170);
+  }
+
+  &__result-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  &__result-download {
+    padding: 0.5rem 1rem;
+    background-color: rgb(34 197 94);
+    border-radius: 0.25rem;
+    color: rgb(244 244 245);
+    text-decoration: none;
+    font-size: 0.875rem;
+
+    &:hover {
+      background-color: rgb(22 163 74);
+    }
+  }
+
+  &__result-clear {
+    padding: 0.5rem 1rem;
+    background-color: rgb(39 39 42);
+    border: none;
+    border-radius: 0.25rem;
+    color: rgb(244 244 245);
+    cursor: pointer;
+    font-size: 0.875rem;
+
+    &:hover {
+      background-color: rgb(63 63 70);
+    }
+  }
 }

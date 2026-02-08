@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
-import { checkHealth, uploadFile, UploadResponse } from "@/app/services/api";
+import { checkHealth, uploadFile, getDownloadUrl, UploadResponse } from "@/app/services/api";
 import { ConnectionStatus } from "@/app/types";
 import "./HomePage.scss";
 
@@ -95,7 +95,7 @@ export function HomePage() {
             {file ? (
               <div className="home-page__file">
                 <p className="home-page__file-name">{file.name}</p>
-                <p className="home-page__file-size">{(file.size / 1024 / 1024).toFixed(2)} MB</p>
+                <p className="home-page__file-size">{(file.size / 1024).toFixed(1)} KB</p>
                 <button className="home-page__file-remove" onClick={() => { setFile(null); setError(null); }}>Remove</button>
               </div>
             ) : (
@@ -125,9 +125,29 @@ export function HomePage() {
           <div className="home-page__output">
             {uploadResult ? (
               <div className="home-page__result">
-                <p className="home-page__result-name">{uploadResult.filename}</p>
-                <p className="home-page__result-info">{uploadResult.content_type}</p>
-                <p className="home-page__result-status">Status: {uploadResult.status}</p>
+                <img
+                  src={getDownloadUrl(uploadResult.processed_filename)}
+                  alt="Processed"
+                  className="home-page__result-image"
+                />
+                <p className="home-page__result-size">
+                  {(uploadResult.processed_size / 1024).toFixed(1)} KB
+                </p>
+                <div className="home-page__result-actions">
+                  <a
+                    href={getDownloadUrl(uploadResult.processed_filename)}
+                    download={uploadResult.processed_filename}
+                    className="home-page__result-download"
+                  >
+                    Download
+                  </a>
+                  <button
+                    className="home-page__result-clear"
+                    onClick={() => setUploadResult(null)}
+                  >
+                    Clear
+                  </button>
+                </div>
               </div>
             ) : (
               <span className="home-page__output-text">Processed file will appear here</span>
