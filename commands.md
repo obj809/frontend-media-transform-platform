@@ -18,3 +18,10 @@ npm run start    # Start production server
 ```bash
 npm run lint     # Run ESLint
 ```
+
+## Testing
+
+```bash
+npm test         # Run all tests
+npm run test:watch  # Run tests in watch mode
+```
