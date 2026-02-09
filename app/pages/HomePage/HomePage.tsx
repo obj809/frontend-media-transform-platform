@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
@@ -125,10 +126,13 @@ export function HomePage() {
           <div className="home-page__output">
             {uploadResult ? (
               <div className="home-page__result">
-                <img
+                <Image
                   src={getDownloadUrl(uploadResult.processed_filename)}
                   alt="Processed"
                   className="home-page__result-image"
+                  width={400}
+                  height={250}
+                  unoptimized
                 />
                 <p className="home-page__result-size">
                   {(uploadResult.processed_size / 1024).toFixed(1)} KB
