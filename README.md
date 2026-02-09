@@ -1,4 +1,4 @@
-# Frontend Media Transform Platform
+# Frontend Data Processing Engine
 
 [![CI](https://github.com/obj809/frontend-media-transform-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/obj809/frontend-media-transform-platform/actions/workflows/ci.yml)
 
