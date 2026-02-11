@@ -31,22 +31,22 @@ describe('HomePage', () => {
     await act(async () => {
       render(<HomePage />);
     });
-    expect(screen.getByText('JPG only, max 25MB')).toBeInTheDocument();
+    expect(screen.getByText('JPG, PNG, or HEIC, max 25MB')).toBeInTheDocument();
   });
 
-  it('shows error for non-JPG files', async () => {
+  it('shows error for unsupported file types', async () => {
     await act(async () => {
       render(<HomePage />);
     });
 
-    const file = new File(['test'], 'test.png', { type: 'image/png' });
+    const file = new File(['test'], 'test.gif', { type: 'image/gif' });
     const input = document.querySelector('input[type="file"]') as HTMLInputElement;
 
     await act(async () => {
       fireEvent.change(input, { target: { files: [file] } });
     });
 
-    expect(screen.getByText('Only JPG files are allowed')).toBeInTheDocument();
+    expect(screen.getByText('Only JPG, PNG, and HEIC files are allowed')).toBeInTheDocument();
   });
 
   it('shows error for files exceeding size limit', async () => {

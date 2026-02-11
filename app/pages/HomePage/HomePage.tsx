@@ -52,8 +52,10 @@ export function HomePage() {
     setUploadResult(null);
 
     const isJpeg = file.type === "image/jpeg" || file.name.toLowerCase().endsWith(".jpg") || file.name.toLowerCase().endsWith(".jpeg");
-    if (!isJpeg) {
-      setError("Only JPG files are allowed");
+    const isPng = file.type === "image/png" || file.name.toLowerCase().endsWith(".png");
+    const isHeic = file.type === "image/heic" || file.type === "image/heif" || file.name.toLowerCase().endsWith(".heic") || file.name.toLowerCase().endsWith(".heif");
+    if (!isJpeg && !isPng && !isHeic) {
+      setError("Only JPG, PNG, and HEIC files are allowed");
       return;
     }
 
@@ -102,12 +104,12 @@ export function HomePage() {
             ) : (
               <label className="home-page__upload-label">
                 <span>Drop file here or click to upload</span>
-                <span className="home-page__upload-limit">JPG only, max 25MB</span>
+                <span className="home-page__upload-limit">JPG, PNG, or HEIC, max 25MB</span>
                 {error && <span className="home-page__upload-error">{error}</span>}
                 <input
                   type="file"
                   className="home-page__upload-input"
-                  accept=".jpg,.jpeg,image/jpeg"
+                  accept=".jpg,.jpeg,.png,.heic,.heif,image/jpeg,image/png,image/heic,image/heif"
                   onChange={handleFileChange}
                 />
               </label>
