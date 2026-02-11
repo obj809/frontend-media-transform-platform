@@ -87,14 +87,14 @@ export function HomePage() {
       <Header />
 
       <main className="home-page__main">
-        <section className="home-page__section">
-          <div
-            className={`home-page__upload ${dragActive ? "home-page__upload--active" : ""}`}
-            onDragEnter={handleDrag}
-            onDragLeave={handleDrag}
-            onDragOver={handleDrag}
-            onDrop={handleDrop}
-          >
+        <section
+          className={`home-page__section home-page__section--upload ${dragActive ? "home-page__section--drag-active" : ""}`}
+          onDragEnter={handleDrag}
+          onDragLeave={handleDrag}
+          onDragOver={handleDrag}
+          onDrop={handleDrop}
+        >
+          <div className="home-page__upload">
             {file ? (
               <div className="home-page__file">
                 <p className="home-page__file-name">{file.name}</p>
@@ -156,7 +156,7 @@ export function HomePage() {
                 </div>
               </div>
             ) : (
-              <span className="home-page__output-text">Processed file will appear here</span>
+              <span className="home-page__output-text">Your processed image will appear here</span>
             )}
           </div>
         </section>

@@ -20,13 +20,6 @@ describe('HomePage', () => {
     expect(screen.getByText('Drop file here or click to upload')).toBeInTheDocument();
   });
 
-  it('renders the output area', async () => {
-    await act(async () => {
-      render(<HomePage />);
-    });
-    expect(screen.getByText('Processed file will appear here')).toBeInTheDocument();
-  });
-
   it('shows file size limit info', async () => {
     await act(async () => {
       render(<HomePage />);

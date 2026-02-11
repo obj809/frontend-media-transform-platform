@@ -2,7 +2,9 @@
 
 [![CI](https://github.com/obj809/frontend-media-transform-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/obj809/frontend-media-transform-platform/actions/workflows/ci.yml)
 
-Next.js frontend for uploading JPG files, triggering backend image processing, previewing the processed result, and downloading it.
+Next.js frontend for uploading images (JPG, PNG, HEIC), triggering backend processing, previewing results, and downloading.
+
+![Project Screenshot](project-screenshot.png)
 
 ## Stack
 
@@ -48,8 +50,14 @@ Open `http://localhost:3000`.
 
 ## App Flow
 
-1. Frontend checks backend health (`GET /health`).
-2. User selects or drags a JPG file (max 25MB).
-3. Frontend uploads to `POST /upload`.
-4. UI renders processed image from `GET /download/{filename}`.
-5. User can download the processed file.
+1. Frontend checks backend health (`GET /health`)
+2. User selects or drags an image file (JPG, PNG, or HEIC; max 25MB)
+3. Frontend uploads to `POST /upload`
+4. Backend converts to JPG and returns metadata
+5. UI renders processed image from `GET /download/{filename}`
+6. User can download the processed file
+
+## Supported Formats
+
+- **Input**: JPG, PNG, HEIC/HEIF
+- **Output**: JPG (from backend)

@@ -5,10 +5,28 @@
   &__container {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    min-height: 1.25rem;
   }
 
   &__title {
     font-size: 1.125rem;
     font-weight: 600;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  &__link {
+    color: rgb(161 161 170);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+
+    &:hover {
+      color: rgb(244 244 245);
+    }
   }
 }
