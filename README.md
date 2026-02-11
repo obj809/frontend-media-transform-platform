@@ -4,8 +4,6 @@
 
 Next.js frontend for uploading images (JPG, PNG, HEIC), triggering backend processing, previewing results, and downloading.
 
-![Project Screenshot](project-screenshot.png)
-
 ## Stack
 
 - Next.js 16
